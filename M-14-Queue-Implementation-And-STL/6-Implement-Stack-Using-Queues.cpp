@@ -19,7 +19,9 @@ public:
     queue<int> q;
     MyStack() {}
 
-    void push(int x) { q.push(x); }
+    void push(int x) { 
+        q.push(x);
+    }
 
     int pop()
     {
