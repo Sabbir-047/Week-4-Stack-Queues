@@ -9,37 +9,42 @@ Problem link -> https://docs.google.com/document/d/1KOilh4Vb-PN21_kD7ejLA6qx6AhV
 
 // -------------------------
 
-
 #include <bits/stdc++.h>
 using namespace std;
 
 // class
-class myStack{
+class myStack
+{
 public:
     vector<int> v;
 
     // push function
-    void push(int val){
+    void push(int val)
+    {
         v.push_back(val);
     }
 
     // pop function
-    void pop(){
+    void pop()
+    {
         v.pop_back();
     }
 
     // top function
-    int top(){
+    int top()
+    {
         return v.back();
     }
 
     // size function
-    int length(){
+    int length()
+    {
         return v.size();
     }
 
     // empty function
-    bool empty(){
+    bool empty()
+    {
         return v.empty();
     }
 };
@@ -61,7 +66,6 @@ int main()
         st1.push(x);
     }
 
-
     // second stack
     int m;
     cin >> m;
@@ -73,16 +77,33 @@ int main()
         st2.push(y);
     }
 
+    // setting flag
+    int flag = 0;
 
     // checking conditions for the problem
-    while(!st1.empty() || !st2.empty()){
+    while (!st1.empty() && !st2.empty())
+    {
         if (st1.top() == st2.top())
-            cout << "YES" << endl;
+        {
+            // count++;
+            flag = 1;
+            st1.pop();
+            st2.pop();
+        }
         else
+        {
             cout << "NO" << endl;
-            break;
+            return 0;
+        }
     }
-    
+
+    // condition for yes
+    if (flag == 1)
+        cout << "YES" << endl;
+    else
+    {
+        cout << "NO" << endl;
+    }
 
     return 0;
 }
